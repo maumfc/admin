@@ -1,0 +1,21 @@
+*{
+  margin: 0px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px;
+  background-color: rgb(19, 22, 66);
+  color: rgb(245, 209, 248);
+}
+
