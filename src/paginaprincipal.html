@@ -8,22 +8,25 @@
 </head>
 <body>
  
-  <section class="registro"></section>
-  <h1>Administración de Eventos</h1>
-  <label for="">Nombre del evento</label>
- <input id="nombre del evento" type="text">
- <br>
- <label for="">Fecha del evento</label>
- <input id="Fecha del evento" type="text">
- <br>
-    
- <label for="">Descripción</label>
- <input id="Descripción" type="text">
- <br>
-
- <button id="guardar">guardar</button>
-
-
+  <div class="lista bordeRedondeado">
+    <div class="fecha">
+        <div class="fechaDerecha">
+            <div id="numeroFecha"></div>
+            <div>
+                <div id="mesFecha"></div>
+                <div id="añoFecha"></div>
+            </div>
+        </div>
+        <div id="textoFecha"></div>
+    </div>
+    <form onsubmit="agregarNuevaTarea(event)">
+        <input type="text" name="tareaTexto" autocomplete="off" placeholder="Nueva tarea" class="bordeRedondeado">
+        <button type="submit" class="botonAgregarTarea">+</button>
+        <button type="button" class="botonOrdenar bordeRedondeado" onclick="renderizarTareasOrdenadas()">Ordenar</button>
+    </form>
+    <div id="contenedorTareas"></div>
+</div>
+ 
       <script src="paginaprincipal.js"></script>
 </body>
 </html>
