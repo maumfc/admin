@@ -7,24 +7,16 @@
     <link rel="stylesheet" href="paginaprincipal.css">
 </head>
 <body>
- 
-  <div class="lista bordeRedondeado">
-    <div class="fecha">
-        <div class="fechaDerecha">
-            <div id="numeroFecha"></div>
-            <div>
-                <div id="mesFecha"></div>
-                <div id="añoFecha"></div>
-            </div>
-        </div>
-        <div id="textoFecha"></div>
+    <div class="contenerdor de tareas">
+        <h1>Tablero de Tareas</h1>
+        <form id="task-form">
+            <input type="text" id="task-input" placeholder="Agregar una tarea">
+            <button type="submit">Agregar</button>
+            <input type="text" id="task-input" placeholder="Agregar una tarea">
+            <button type="submit">descripcion</button>
+        </form>
+        <ul id="task-list"></ul>
     </div>
-    <form onsubmit="agregarNuevaTarea(event)">
-        <input type="text" name="tareaTexto" autocomplete="off" placeholder="Nueva tarea" class="bordeRedondeado">
-        <button type="submit" class="botonAgregarTarea">+</button>
-        <button type="button" class="botonOrdenar bordeRedondeado" onclick="renderizarTareasOrdenadas()">Ordenar</button>
-    </form>
-    <div id="contenedorTareas"></div>
 </div>
  
       <script src="paginaprincipal.js"></script>

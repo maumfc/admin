@@ -1,47 +1,55 @@
-// Información de la fecha
-const numeroFecha = document.getElementById('numeroFecha');
-const textoFecha = document.getElementById('textoFecha');
-const mesFecha = document.getElementById('mesFecha');
-const añoFecha = document.getElementById('añoFecha');
+const taskForm = document.getElementById('task-form');
+const taskInput = document.getElementById('task-input');
+const taskList = document.getElementById('task-list');
 
-// Contenedor de tareas
-const contenedorTareas = document.getElementById('contenedorTareas');
+// Cargar tareas guardadas al cargar la página
+loadTasks();
 
-const establecerFecha = () => {
-    const fecha = new Date();
-    numeroFecha.textContent = fecha.toLocaleString('es', { day: 'numeric' });
-    textoFecha.textContent = fecha.toLocaleString('es', { weekday: 'long' });
-    mesFecha.textContent = fecha.toLocaleString('es', { month: 'short' });
-    añoFecha.textContent = fecha.toLocaleString('es', { year: 'numeric' });
-};
+taskForm.addEventListener('submit', addTask);
 
-const agregarNuevaTarea = event => {
-    event.preventDefault();
-    const { value } = event.target.tareaTexto;
-    if (!value) return;
-    const tarea = document.createElement('div');
-    tarea.classList.add('tarea', 'bordeRedondeado');
-    tarea.addEventListener('click', cambiarEstadoTarea);
-    tarea.textContent = value;
-    contenedorTareas.prepend(tarea);
-    event.target.reset();
-};
+function addTask(e) {
+    e.preventDefault();
+    const taskText = taskInput.value.trim();
 
-const cambiarEstadoTarea = event => {
-    event.target.classList.toggle('hecha');
-};
+    if(taskText !== '') {
+        const taskItem = document.createElement('li');
+        taskItem.innerHTML = `
+        <span>${taskText}</span>
+        <button class='delete'>Eliminar</button>
+        `;
+        taskList.appendChild(taskItem)
+        taskInput.value = '';
 
-const ordenar = () => {
-    const hechas = [];
-    const porHacer = [];
-    contenedorTareas.childNodes.forEach(el => {
-        el.classList.contains('hecha') ? hechas.push(el) : porHacer.push(el);
+        saveTasks(); // Guardar tareas al agregar una nueva
+
+        const deleteButton = taskItem.querySelector('.delete');
+        deleteButton.addEventListener('click', () => {
+            taskList.removeChild(taskItem);
+            saveTasks(); // Guardar tareas al eliminar una
+        })
+    }
+}
+
+function loadTasks() {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    tasks.forEach(taskText => {
+        const taskItem = document.createElement('li');
+        taskItem.innerHTML = `
+        <span>${taskText}</span>
+        <button class='delete'>Eliminar</button>
+        `;
+        taskList.appendChild(taskItem)
+
+        const deleteButton = taskItem.querySelector('.delete');
+        deleteButton.addEventListener('click', () => {
+            taskList.removeChild(taskItem);
+            saveTasks(); // Guardar tareas al eliminar una
+        });
     });
-    return [...porHacer, ...hechas];
 }
 
-const renderizarTareasOrdenadas = () => {
-    ordenar().forEach(el => contenedorTareas.appendChild(el));
+function saveTasks() {
+    const taskItems = Array.from(taskList.querySelectorAll('li span'));
+    const taskTexts = taskItems.map(item => item.textContent);
+    localStorage.setItem('tasks', JSON.stringify(taskTexts))
 }
-
-establecerFecha();
