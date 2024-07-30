@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administración</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2 class="text-center">Administración</h2>
+        <form id="create-event-form">
+          <div class="form-group">
+            <label for="event-title">Título del evento:</label>
+            <input type="text" id="event-title" name="event-title" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="event-description">Descripción del evento:</label>
+            <textarea id="event-description" name="event-description" class="form-control"></textarea>
+          </div>
+          <button id="create-event-btn" class="btn btn-primary btn-block">Crear evento</button>
+        </form>
+        <br>
+        <div id="events-list"></div>
+      </div>
+    </div>
+  </div>
+
+  
+  <script src="./js/admin.js"></script>
+</body>
+</html>
