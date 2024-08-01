@@ -1,71 +1,23 @@
-// Función para guardar datos en Local Storage
-function saveData(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
+const storage = window.localStorage;
+
+// Función para guardar un item en el almacenamiento local
+function setItem(key, value) {
+  storage.setItem(key, JSON.stringify(value));
 }
 
-// Función para obtener datos de Local Storage
-function getData(key) {
-  return JSON.parse(localStorage.getItem(key));
-}// localStorage.js
-let users = [];
-
-if (localStorage.getItem('users')) {
-users = JSON.parse(localStorage.getItem('users'));
+// Función para obtener un item del almacenamiento local
+function getItem(key) {
+  return JSON.parse(storage.getItem(key));
 }
 
-// Función para guardar datos en Local Storage
-function saveData(key, data) {
-localStorage.setItem(key, JSON.stringify(data));
+// Función para eliminar un item del almacenamiento local
+function removeItem(key) {
+  storage.removeItem(key);
 }
 
-// Función para obtener datos de Local Storage
-function getData(key) {
-return JSON.parse(localStorage.getItem(key));
+// Función para limpiar el almacenamiento local
+function clearStorage() {
+  storage.clear();
 }
 
-// Función para registrar un nuevo usuario
-function registerUser(username, password) {
-const existingUser = users.find((u) => u.username === username);
-if (existingUser) {
-  throw new Error('Usuario ya existe');
-}
-const newUser = { username, password }; 
-users.push(newUser);
-saveData('users', users);
-}
-
-// Función para iniciar sesión
-function loginUser(username, password) {
-const user = users.find((u) => u.username === username && u.password === password);
-if (!user) {
-  throw new Error('Credenciales incorrectas');
-}
-return user;
-}
-
-// Función para obtener el usuario actual
-function getCurrentUser() {
-const user = getData('currentUser');
-return user;
-}
-
-// Función para establecer el usuario actual
-function setCurrentUser(user) {
-saveData('currentUser', user);
-}
-
-// Función para eliminar el usuario actual
-function removeCurrentUser() {
-localStorage.removeItem('currentUser');
-}
-
-// Exportar las funciones
-export {
-saveData,
-getData,
-registerUser,
-loginUser,
-getCurrentUser,
-setCurrentUser,
-removeCurrentUser
-};
+export { setItem, getItem, removeItem, clearStorage };

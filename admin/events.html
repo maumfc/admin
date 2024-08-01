@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eventos y tareas Usuario vista</title>
+  <title>Eventos</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/styles.css">
 </head>
@@ -11,14 +11,25 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <h2 class="text-center">Eventos y tareas Usuario vista</h2>
-        <div id="events-list"></div>
-        <button  class="btn btn-primary btn-block" href="./index.html" >regresar</button>
+        <h2 class="text-center">Eventos</h2>
+        <div id="events-list" class="row">
+          <div class="col-md-6">
+            <h2 class="text-center">Eventos</h2>
+            <div id="events-list-events"></div>
+          </div>
+          <div class="col-md-6">
+            <h2 class="text-center">Tareas</h2>
+            <div id="events-list-tasks"></div>
+          </div>
+          <button id="return-btn" class="btn btn-primary btn-block">Regresar</button>
+        <br>
+        </div>
       </div>
     </div>
   </div>
 
-  
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
   <script src="./js/events.js"></script>
 </body>
 </html>
