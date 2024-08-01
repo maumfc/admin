@@ -1,34 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrarse</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <h2 class="text-center">Registro</h2>
-                <form id="register-form">
-                    <div class="form-group">
-                        <label for="username">Usuario:</label>
-                        <input type="text" id="username" name="username" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Contraseña:</label>
-                        <input type="password" id="password" name="password" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="email">Correo electrónico:</label>
-                      <input type="email" id="email" name="email" class="form-control">
-                  </div>
-                  <button id="register-btn" class="btn btn-primary btn-block">Registrarse</button>
-              </form>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <h2 class="text-center">Registrarse</h2>
+        <form id="register-form">
+          <div class="form-group">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" class="form-control">
           </div>
+          <div class="form-group">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="role">Rol:</label>
+            <select id="role" name="role" class="form-control">
+              <option value="admin">Administrador</option>
+              <option value="user">Usuario</option>
+            </select>
+          </div>
+          <button id="register-btn" class="btn btn-primary btn-block">Registrarse</button>
+        </form>
       </div>
+    </div>
   </div>
+
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
   <script src="./js/register.js"></script>
 </body>
 </html>
