@@ -82,7 +82,7 @@ createEventBtn.addEventListener('click', (e) => {
   document.getElementById('event-description').value = '';
 });
 
-// Save changes
+// Save changes (agregar, actualizar, eliminar)
 saveChangesBtn.addEventListener('click', (e) => {
   e.preventDefault();
   const eventTitle = document.getElementById('event-title').value.trim();
